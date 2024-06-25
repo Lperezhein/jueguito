@@ -1,0 +1,90 @@
+# myapp.kv
+
+#:kivy 2.0.0
+
+<MenuScreen>:
+    name: 'menu'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Aventuras de Letras y Números'
+            font_size: 32
+        Button:
+            text: 'Explorar Alfabeto'
+            background_color: 0.2, 0.6, 0.8, 1  # Azul claro
+            on_release: root.manager.current = 'alphabet'
+        Button:
+            text: 'Caza de Números'
+            background_color: 0.99, 0.93, 0.0, 1  # amarillo
+            on_release: root.manager.current = 'number_hunt'
+        Button:
+            text: 'Colores y Letras'
+            background_color: 0.2, 0.6, 0.8, 1  # Azul claro
+            on_release: root.manager.current = 'color_match'
+        Button:
+            text: 'Puzzle de Números'
+            background_color: 0.99, 0.93, 0.0, 1  # amarillo
+            on_release: root.manager.current = 'number_puzzle'
+        Button:
+            text: 'Explorar Sistema Solar'
+            background_color: 0.2, 0.6, 0.8, 1  # Azul claro
+            on_release: root.manager.current = 'solar_system'
+        Button:
+            text: 'Salir'
+            background_color: 1, 0, 0, 1  # rojo
+            on_release: app.stop()
+
+
+<NumberHuntScreen>:
+    name: 'number_hunt'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Caza de Números'
+            size_hint_y: 0.1
+        BoxLayout:
+            id: grid_container  # Aquí se añadirá la grilla
+            padding: 20
+            size_hint_y: 0.8
+        Button:
+            text: 'Volver al Menú'
+            size_hint_y: 0.1
+            background_color: 0.2, 0.6, 0.8, 1  # Azul claro
+            on_release: root.manager.current = 'menu'
+
+
+
+
+
+<ColorMatchScreen>:
+    name: 'color_match'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Colores y Letras'
+            size_hint_y: None
+            height: '48dp'  # Altura fija para el título
+            font_size: 32
+            
+        BoxLayout:
+            id: game_container  # Contenedor del juego
+            orientation: 'vertical'
+            size_hint_y: 0.8
+            spacing: 10
+            
+        Button:
+            text: 'Volver al Menú'
+            size_hint_y: None
+            height: '48dp'  # Altura fija para el botón
+            background_color: 0.2, 0.6, 0.8, 1  # Color azul claro
+            on_release: root.go_to_menu(self)  # Llamar al método go_to_menu en el release del botón
+
+
+<NumberPuzzleScreen>:
+    name: 'number_puzzle'
+
+
+
